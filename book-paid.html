@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>الكتاب المدفوع</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="reader.css" />
+</head>
+<body>
+  <header class="navbar">
+    <div class="container nav-inner">
+      <a class="btn btn--ghost btn--sm hoverfx" href="index.html">الرئيسية</a>
+      <a class="logo" href="index.html">ito.coding</a>
+    </div>
+  </header>
+
+  <main class="reader">
+    <div class="container">
+      <div class="reader-head">
+        <h1>برمجة من غير لخبطة</h1>
+        <p class="muted" id="pdfStatus">جاري التحقق من الحساب…</p>
+      </div>
+
+      <div class="reader-tools">
+        <div class="pill">
+          <span>الصفحة:</span>
+          <strong id="pageNum">0</strong>
+          <span>/</span>
+          <strong id="pageCount">0</strong>
+        </div>
+
+        <a class="btn btn--ghost btn--sm" href="account.html">حسابي</a>
+      </div>
+
+      <div id="blocked" class="blocked" hidden>
+        <h3>مش مسموح بالوصول</h3>
+        <p id="blockedMsg" class="muted"></p>
+        <div class="blocked-actions">
+          <a class="btn btn--primary" href="login.html">تسجيل الدخول</a>
+          <a class="btn btn--ghost" href="index.html">رجوع للرئيسية</a>
+        </div>
+      </div>
+
+      <div id="pdfPages" class="pdf-pages"></div>
+    </div>
+  </main>
+
+  <!-- PDF.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.0.379/pdf.min.js"></script>
+  <script>
+    // ضع ملف PDF المدفوع هنا (أو غيّر الاسم في الكود)
+    window.PAID_PDF_URL = "paid-book.pdf";
+  </script>
+  <script src="reader-paid.js"></script>
+</body>
+</html>

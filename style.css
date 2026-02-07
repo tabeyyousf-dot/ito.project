@@ -1,0 +1,813 @@
+:root{
+  --c1:#1d3557;   /* الأساسي */
+  --c2:#457b9d;   /* الثاني */
+  --c3:#a8dadc;   /* الثالث */
+  --text:#f1faee; /* نص */
+  --danger:#e63946; /* مهم */
+  --shadow: 0 12px 30px rgba(0,0,0,.25);
+  --shadow2: 0 10px 24px rgba(0,0,0,.22);
+  --radius: 16px;
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Cairo', sans-serif;
+}
+
+html{ scroll-behavior:smooth; }
+
+body{
+  background:
+    radial-gradient(1000px 600px at 80% -10%, rgba(168,218,220,.35), transparent 60%),
+    radial-gradient(900px 500px at 10% 10%, rgba(69,123,157,.25), transparent 60%),
+    linear-gradient(180deg, var(--c1), #0b1220 70%);
+  color:var(--text);
+  line-height:1.9;
+  /* for fixed navbar */
+  padding-top: 72px;
+}
+
+/* Container */
+.container{
+  width: 92%;
+  max-width: 1100px;
+  margin: auto;
+}
+
+/* Effects base */
+.hoverfx{
+  transition: transform .2s ease, box-shadow .2s ease, filter .2s ease, opacity .2s ease;
+}
+.hoverfx:hover{
+  transform: translateY(-2px);
+  box-shadow: var(--shadow2);
+}
+.hoverfx:active{
+  transform: translateY(0);
+  box-shadow: none;
+  filter: brightness(.98);
+}
+
+/* Hover for cards */
+.hovercard{
+  transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease, background .22s ease;
+}
+.hovercard:hover{
+  transform: translateY(-6px);
+  box-shadow: var(--shadow);
+}
+
+/* Navbar */
+.navbar{
+  position: fixed;
+  top:0;
+  left:0;
+  right:0;
+  z-index: 50;
+  backdrop-filter: blur(10px);
+  background: rgba(29,53,87,.65);
+  border-bottom: 1px solid rgba(168,218,220,.18);
+}
+
+.nav-inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding: 14px 0;
+}
+
+.logo{
+  text-decoration:none;
+  font-weight: 800;
+  letter-spacing: .4px;
+  color: var(--text);
+  font-size: 22px;
+}
+.logo:hover{
+  color: var(--c3);
+}
+
+/* Buttons */
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  text-decoration:none;
+  border-radius: 12px;
+  padding: 12px 18px;
+  font-weight: 800;
+  border: 1px solid transparent;
+  cursor:pointer;
+  user-select:none;
+}
+
+.btn--sm{ padding: 10px 14px; border-radius: 12px; }
+
+.btn--primary{
+  background: linear-gradient(135deg, var(--c2), var(--c3));
+  color: #08101c;
+}
+.btn--primary:hover{
+  filter: saturate(1.05) brightness(1.02);
+}
+
+.btn--ghost{
+  background: rgba(241,250,238,.06);
+  border-color: rgba(168,218,220,.25);
+  color: var(--text);
+}
+.btn--ghost:hover{
+  border-color: rgba(168,218,220,.55);
+}
+
+/* Hero */
+.hero{
+  padding: 86px 0 60px;
+  text-align:center;
+}
+
+.hero h2{
+  font-size: 38px;
+  line-height: 1.3;
+  margin-bottom: 14px;
+}
+
+.hero p{
+  max-width: 680px;
+  margin: 0 auto 22px;
+  color: rgba(241,250,238,.88);
+}
+
+.hero-actions{
+  display:flex;
+  gap: 12px;
+  justify-content:center;
+  flex-wrap:wrap;
+}
+
+.hero-note{
+  margin: 22px auto 0;
+  width: fit-content;
+  display:flex;
+  gap: 10px;
+  align-items:center;
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: rgba(168,218,220,.10);
+  border: 1px solid rgba(168,218,220,.20);
+  color: rgba(241,250,238,.90);
+}
+
+.tag{
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(69,123,157,.35);
+  border: 1px solid rgba(168,218,220,.25);
+  font-weight: 800;
+}
+
+/* Sections */
+.books{
+  padding: 70px 0;
+  background: rgba(8,16,28,.35);
+  border-top: 1px solid rgba(168,218,220,.12);
+  border-bottom: 1px solid rgba(168,218,220,.12);
+}
+
+.section-head{
+  text-align:center;
+  margin-bottom: 34px;
+}
+.section-head h2{ font-size: 30px; margin-bottom: 6px; }
+.section-head p{ color: rgba(241,250,238,.80); }
+
+.books-grid{
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  gap: 24px;
+}
+
+.book-card{
+  position:relative;
+  border-radius: var(--radius);
+  padding: 24px;
+  background: rgba(29,53,87,.35);
+  border: 1px solid rgba(168,218,220,.16);
+  overflow:hidden;
+}
+
+.book-card::before{
+  content:"";
+  position:absolute;
+  inset:-2px;
+  background: radial-gradient(600px 250px at 20% 0%, rgba(168,218,220,.22), transparent 60%),
+              radial-gradient(600px 250px at 80% 20%, rgba(69,123,157,.18), transparent 60%);
+  pointer-events:none;
+  opacity:.8;
+}
+
+.book-card > *{ position:relative; }
+
+.book-card.featured{
+  border-color: rgba(168,218,220,.35);
+  background: rgba(69,123,157,.22);
+}
+
+.book-card h3{
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+
+.book-card p{
+  color: rgba(241,250,238,.85);
+}
+
+.book-card ul{
+  padding-right: 18px;
+  margin-top: 10px;
+}
+.book-features{
+  margin-top: 12px;
+  padding-right: 18px;
+}
+
+.book-features li{
+  margin-bottom: 8px;
+  color: rgba(241,250,238,.9);
+  position: relative;
+}
+.paid-desc{
+  color: rgba(241,250,238,.9);
+  margin-bottom: 10px;
+  line-height: 1.85;
+}
+
+
+.book-features li::marker{
+  color: var(--c3);
+}
+
+.book-card li{
+  margin-bottom: 8px;
+  color: rgba(241,250,238,.88);
+}
+
+/* Badges */
+.badge{
+  position:absolute;
+  top: 16px;
+  left: 16px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 900;
+  border: 1px solid rgba(241,250,238,.2);
+  backdrop-filter: blur(6px);
+}
+
+.badge.free{
+  background: rgba(168,218,220,.22);
+  color: var(--text);
+}
+
+.badge.paid{
+  background: rgba(230,57,70,.22);
+  color: var(--text);
+  border-color: rgba(230,57,70,.35);
+}
+
+.card-actions{
+  margin-top: 18px;
+  display:flex;
+  gap: 10px;
+  flex-wrap:wrap;
+  align-items:center;
+}
+
+/* Chips */
+.chip{
+  border: 1px solid rgba(168,218,220,.25);
+  background: rgba(241,250,238,.06);
+  color: var(--text);
+  padding: 10px 12px;
+  border-radius: 999px;
+  font-weight: 800;
+}
+.chip--danger{
+  border-color: rgba(230,57,70,.35);
+  background: rgba(230,57,70,.14);
+  color: var(--text);
+}
+.chip--info{
+  background: rgba(168,218,220,.18);
+  border: 1px dashed rgba(168,218,220,.45);
+  color: var(--text);
+  cursor: default;
+  box-shadow: none;
+}
+
+/* About */
+.about{
+  padding: 70px 0;
+}
+
+.about-card{
+  text-align:center;
+  border-radius: var(--radius);
+  padding: 28px;
+  background: rgba(29,53,87,.28);
+  border: 1px solid rgba(168,218,220,.16);
+}
+.about-desc{
+  margin-bottom: 10px;
+  color: rgba(241,250,238,.9);
+  line-height: 1.9;
+  text-align: center;
+}
+
+.about-desc.highlight{
+  color: var(--c3);
+  font-weight: 700;
+}
+
+.about-card h2{
+  font-size: 28px;
+  margin-bottom: 8px;
+}
+.about-card p{
+  color: rgba(241,250,238,.86);
+  max-width: 760px;
+  margin: 0 auto 18px;
+}
+.about-points .mini{
+  max-width: 420px;
+  width: 100%;
+}
+
+.about-points{
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+  gap: 14px;
+  margin: 18px 0 22px;
+}
+/* غلط */
+/* توسيط الكارت الثالث (شكل محترم) في الديسكتوب */
+/* .about-points .mini:nth-child(3){
+  grid-column: 1 / -1;
+  justify-self: center;
+  max-width: 420px;
+} */
+/* غلط */
+.about-points{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin: 28px 0;
+}
+
+.mini{
+  text-align: center;
+  border-radius: 14px;
+  padding: 22px 18px;
+  background: rgba(69,123,157,.18);
+  border: 1px solid rgba(168,218,220,.14);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  min-height: 150px;
+}
+
+
+.mini h4{
+  font-size: 18px;
+  margin-bottom: 6px;
+  color: var(--text);
+}
+.mini p{
+  margin:0;
+  color: rgba(241,250,238,.82);
+}
+
+/* Footer */
+.footer{
+  padding: 22px 0;
+  background: rgba(8,16,28,.6);
+  border-top: 1px solid rgba(168,218,220,.12);
+}
+
+.footer-inner{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+  gap: 6px;
+}
+
+
+.footer-sign{
+  color: rgba(241,250,238,.92);
+  font-weight: 800;
+}
+.dot{
+  color: var(--danger);
+  font-weight: 900;
+  margin: 0 6px;
+}
+
+/* Contact */
+.contact{ padding: 40px 0 10px; }
+.contact-grid{
+  display:grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 14px;
+}
+.contact-item{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding: 14px 16px;
+  border-radius: 16px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(168,218,220,0.14);
+  color: var(--text);
+  text-decoration: none;
+}
+.contact-item span{ color: rgba(241,250,238,.82); font-weight:700; }
+.contact-item strong{ font-weight:800; }
+.contact-item:hover{ box-shadow: 0 0 0 1px rgba(29,53,87,.2); }
+
+@media (max-width: 520px){
+  .contact-grid{ grid-template-columns: 1fr; }
+}
+
+/* Small screens */
+@media (max-width: 520px){
+  .hero h2{ font-size: 30px; }
+}
+.chip--static{
+  cursor: default;
+  box-shadow: none;
+  transform: none !important;
+}
+
+.chip--static:hover{
+  transform: none;
+  box-shadow: none;
+}
+@media (max-width: 520px){
+  .mini{
+    text-align: center;
+  }
+}
+@media (max-width: 520px){
+
+
+  .mini{
+    text-align: center;
+    width: 100%;
+    max-width: 340px;
+    margin: 0 auto;
+  }
+
+}
+@media (max-width: 600px){
+
+  /* خلي سيكشن ليه ito.coding كله في النص */
+  .about-card{
+    text-align: center;
+  }
+
+  /* خلي شبكة البراوزات في النص */
+.about-points{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin: 18px 0 22px;
+}
+
+  /* خلي كل كارت في النص فعليًا */
+  .mini{
+    text-align: center;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+}
+/* Modal */
+.modal{
+  position: fixed;
+  inset: 0;
+  display: none;
+  z-index: 999;
+}
+
+.modal.is-open{
+  display: block;
+}
+
+.modal__backdrop{
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,.55);
+  backdrop-filter: blur(6px);
+}
+
+.modal__panel{
+  position: relative;
+  width: min(560px, 92%);
+  margin: 12vh auto 0;
+  border-radius: 18px;
+  padding: 22px 18px;
+  background: rgba(29,53,87,.82);
+  border: 1px solid rgba(168,218,220,.25);
+  box-shadow: 0 18px 50px rgba(0,0,0,.35);
+  text-align: center;
+}
+
+.modal__panel h3{
+  margin-bottom: 10px;
+  font-size: 22px;
+  color: var(--text);
+}
+
+.modal__text{
+  color: rgba(241,250,238,.9);
+  line-height: 1.9;
+  margin-bottom: 16px;
+}
+
+.modal__phone{
+  color: var(--danger);
+  font-weight: 900;
+  letter-spacing: .5px;
+}
+
+.modal__actions{
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.book-title{
+  font-size: 22px;
+  font-weight: 800;
+  margin-bottom: 10px;
+  color: var(--text);
+}
+.book-card.featured .book-title{
+  color: var(--c3);
+}
+/* ===== Contact Us icons (stable + clean like before) ===== */
+
+.social{
+  width: 52px;
+  height: 52px;
+  border-radius: 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  text-decoration: none !important;
+  border: none;
+
+  /* أهم حاجة: لون صريح */
+  background: #457b9d;
+
+  /* ثبات ونعومة */
+  box-shadow: 0 10px 22px rgba(0,0,0,0.18);
+  transition: transform .18s ease, filter .18s ease, box-shadow .18s ease;
+}
+
+/* يمنع حركة/هزّة الـ SVG */
+.social svg{
+  width: 26px;
+  height: 26px;
+  fill: #f1faee;
+
+  display: block;        /* دي اللي بتثبت الأيقونة */
+  flex: 0 0 auto;
+  transform: none !important;
+}
+
+/* hover بدون ما يهز الأيقونة */
+.social:hover{
+  transform: translateY(-3px);
+  filter: brightness(1.05);
+  box-shadow: 0 14px 28px rgba(0,0,0,0.24);
+}
+.social:hover svg{
+  transform: none !important; /* تأكيد */
+}
+
+/* ألوان صريحة لكل منصة */
+.social.tiktok{   background:#010101; }
+.social.instagram{background:#E1306C; }
+.social.facebook{ background:#1877F2; }
+.social.youtube{  background:#FF0000; }
+.social.whatsapp{ background:#25D366; }
+
+/* يشيل أي خط تحت الأيقونات حتى لو المتصفح عنيد */
+.contact-icons a,
+.contact-icons a:visited,
+.contact-icons a:hover{
+  text-decoration: none !important;
+}
+/* ===== Contact Us (card centered + calm colors) ===== */
+.contact{
+  padding: 70px 0 90px;
+  /* اختلاف بسيط عن السيكشن اللي فوق */
+  background: rgba(29,53,87,0.14);
+}
+
+.contact .contact-card{
+  max-width: 760px;
+  margin: 0 auto;
+  text-align: center;
+
+  background: rgba(69,123,157,0.14);
+  border: 1px solid rgba(168,218,220,0.22);
+  border-radius: 18px;
+  padding: 26px 18px;
+
+  box-shadow: 0 14px 30px rgba(0,0,0,0.18);
+}
+
+.contact .contact-desc{
+  margin: 10px auto 18px;
+  max-width: 680px;
+  color: rgba(241,250,238,0.92);
+  line-height: 1.9;
+}
+
+/* icons centered inside the card */
+.contact-icons{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+/* calm icon style (same size, stable) */
+.contact-icons a,
+.contact-icons a:visited,
+.contact-icons a:hover{
+  text-decoration: none !important;
+}
+
+.social{
+  width: 54px;
+  height: 54px;
+  border-radius: 16px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  /* أهدى: نفس ألوان موقعك */
+  background: rgba(29,53,87,0.35);
+  border: 1px solid rgba(168,218,220,0.22);
+
+  transition: transform .18s ease, filter .18s ease, box-shadow .18s ease;
+}
+
+.social svg{
+  width: 26px;
+  height: 26px;
+  fill: #f1faee;
+  display: block; /* يمنع حركة الأيقونة */
+}
+
+/* hover effect هادي */
+.social:hover{
+  transform: translateY(-3px);
+  filter: brightness(1.06);
+  box-shadow: 0 12px 26px rgba(0,0,0,0.22);
+}
+
+/* لمسة لون بسيطة لكل منصة (مش صريحة قوي) */
+.social.tiktok{   background: rgba(0,0,0,0.30); }
+.social.instagram{background: rgba(225,48,108,0.22); }
+.social.facebook{ background: rgba(24,119,242,0.18); }
+.social.youtube{  background: rgba(255,0,0,0.16); }
+.social.whatsapp{ background: rgba(37,211,102,0.18); }
+/* ===== Responsive Fixes ===== */
+
+/* موبايل */
+@media (max-width: 600px) {
+  .container {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+
+  /* Navbar */
+  .nav-inner{
+    gap: 10px;
+  }
+  .logo{
+    font-size: 18px;
+  }
+
+  /* Hero */
+  .hero h2{
+    font-size: 24px;
+    line-height: 1.35;
+  }
+  .hero p{
+    font-size: 15px;
+  }
+  .hero-actions{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .hero-actions .btn{
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Books grid */
+  .books-grid{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .book-card{
+    padding: 18px 14px;
+  }
+
+  /* About points */
+  .about-points{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  /* Contact card */
+  .contact .contact-card{
+    padding: 22px 14px;
+  }
+  .contact-icons{
+    gap: 10px;
+  }
+  .social{
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+  }
+  .social svg{
+    width: 24px;
+    height: 24px;
+  }
+
+  /* Footer */
+  .footer-inner{
+    text-align: center;
+    gap: 8px;
+  }
+}
+
+/* تابلت */
+@media (min-width: 601px) and (max-width: 980px) {
+  .books-grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .about-points{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 14px;
+  }
+}
+/* ===== Fix layout overflow (FINAL) ===== */
+* { box-sizing: border-box; }
+
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* خلي أي عناصر كبيرة متطلعش برّه الشاشة */
+img, video, iframe {
+  max-width: 100%;
+  height: auto;
+}
+
+/* لو عندك wrapper عام للصفحة */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 16px;
+}

@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>لوحة الأدمن</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="dashboard.css">
+  <style>
+    body{font-family:'Cairo',system-ui,sans-serif;background:transparent;color:var(--text);}
+    .wrap{width:min(920px,100%);margin:30px auto;padding:0 18px;}
+    .card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:18px;padding:18px;}
+    table{width:100%;border-collapse:collapse;margin-top:12px;}
+    th,td{padding:10px;border-bottom:1px solid rgba(255,255,255,.08);text-align:right;}
+    .top{display:flex;gap:10px;justify-content:space-between;align-items:center;margin-bottom:10px;}
+    .muted{opacity:.8}
+  </style>
+</head>
+<body class="admin-page">
+  <div class="wrap">
+    <div class="top">
+      <a class="btn btn--ghost btn--sm" href="account.html">رجوع لحسابي</a>
+      <h1 style="margin:0">لوحة الأدمن</h1>
+      <div style="display:flex; gap:8px; align-items:center;">
+        <button class="btn btn--ghost btn--sm" id="refreshBtn" type="button">تحديث</button>
+        <button class="btn btn--ghost btn--sm" id="logoutBtn" type="button">تسجيل الخروج</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <p class="muted">الجزء ده بيعرض طلبات التفعيل (pending) اللي المستخدمين بيبعتهـا، وتقدر توافق عليها.</p>
+      <div id="msg" class="muted" style="margin:8px 0"></div>
+      <div style="overflow:auto">
+        <table>
+          <thead>
+            <tr>
+              <th>المستخدم</th>
+              <th>الإيميل</th>
+              <th>المنتج</th>
+              <th>التاريخ</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody id="pendingRows"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:16px;">
+      <p class="muted">المشتركين (الكتب المفعّلة approved). تقدر تلغي التفعيل لأي مستخدم.</p>
+      <div id="subsMsg" class="muted" style="margin:8px 0"></div>
+      <div style="overflow:auto">
+        <table>
+          <thead>
+            <tr>
+              <th>المستخدم</th>
+              <th>الإيميل</th>
+              <th>المنتج</th>
+              <th>آخر تحديث</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody id="subsRows"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <script src="admin.js"></script>
+</body>
+</html>

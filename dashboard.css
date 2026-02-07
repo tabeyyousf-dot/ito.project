@@ -1,0 +1,67 @@
+/* Dashboard theme (Account + Admin)
+   Uses the same palette as the main site (style.css variables).
+*/
+
+body.user-page, body.admin-page{
+  background:
+    radial-gradient(900px 500px at 80% -10%, rgba(168,218,220,.22), transparent 60%),
+    radial-gradient(800px 460px at 10% 10%, rgba(69,123,157,.22), transparent 60%),
+    linear-gradient(180deg, var(--c1), #0b1220 70%);
+  color: var(--text);
+}
+
+/* Keep links clean */
+body.user-page a, body.admin-page a{
+  text-decoration: none;
+}
+
+/* Shared cards */
+body.user-page .card,
+body.admin-page .card{
+  background: rgba(255,255,255,.05);
+  border: 1px solid rgba(168,218,220,.18);
+  border-radius: 18px;
+}
+
+/* Buttons inside dashboards: same as site */
+body.user-page .btn,
+body.admin-page .btn,
+body.user-page button,
+body.admin-page button{
+  font-family: inherit;
+}
+
+/* Tables (admin) */
+body.admin-page table{
+  width:100%;
+  border-collapse: collapse;
+}
+body.admin-page th, body.admin-page td{
+  padding: 10px 8px;
+  border-bottom: 1px solid rgba(168,218,220,.18);
+  color: rgba(241,250,238,.92);
+}
+body.admin-page th{
+  color: var(--c3);
+  font-weight: 800;
+  background: rgba(69,123,157,.18);
+}
+
+/* Secondary text */
+body.user-page .muted,
+body.admin-page .muted{
+  color: rgba(241,250,238,.82);
+}
+
+/* Inputs if any */
+body.user-page input,
+body.admin-page input,
+body.user-page select,
+body.admin-page select,
+body.user-page textarea,
+body.admin-page textarea{
+  background: rgba(29,53,87,.55);
+  border: 1px solid rgba(168,218,220,.22);
+  color: var(--text);
+  border-radius: 12px;
+}

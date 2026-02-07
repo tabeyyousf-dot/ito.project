@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>حسابي</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="dashboard.css">
+  <style>
+    body{ background: linear-gradient(180deg, var(--c1), #051a30); color:var(--text); font-family:'Cairo',system-ui,sans-serif; }
+    .wrap{ width:min(960px,100%); margin:0 auto; padding:28px 18px 60px; }
+    .top{ display:flex; align-items:center; justify-content:space-between; gap:12px; }
+    .card{ background: rgba(12,23,38,.6); border:1px solid rgba(167,225,255,.14); border-radius:18px; padding:18px; box-shadow:0 18px 40px rgba(0,0,0,.35); }
+    .grid{ display:grid; grid-template-columns: 1fr; gap:14px; margin-top:14px; }
+    .muted{ color:#a7b8d6; }
+    .book{ display:flex; align-items:center; justify-content:space-between; gap:12px; padding:12px; border-radius:14px; background: rgba(255,255,255,.04); border:1px solid rgba(167,225,255,.10); }
+    .book h3{ margin:0; font-size:1.0rem; }
+    .book p{ margin:2px 0 0; font-size:.92rem; color:#a7b8d6; }
+    .actions{ display:flex; gap:10px; flex-wrap:wrap; }
+  </style>
+</head>
+<body class="user-page">
+  <div class="wrap">
+    <div class="top">
+      <a class="btn btn--ghost btn--sm" href="index.html">الصفحة الرئيسية</a>
+      <div class="actions">
+        <a id="adminLink" class="btn btn--ghost btn--sm" href="admin.html" style="display:none;">لوحة الأدمن</a>
+        <button id="logoutBtn" class="btn btn--primary btn--sm">تسجيل الخروج</button>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:14px;">
+      <h1 style="margin:0 0 6px; font-size:1.35rem;">حسابي</h1>
+      <p class="muted" style="margin:0;">أهلاً <span id="uName">...</span></p>
+    </div>
+
+    <div class="grid">
+      <div class="card">
+        <h2 style="margin:0 0 10px; font-size:1.1rem;">كُتبي</h2>
+        <div id="books"></div>
+
+        <div id="buyBox" style="margin-top:14px; display:none;">
+          <p class="muted" style="margin:0 0 10px;">الكتاب المدفوع مش متفعل عندك لسه.</p>
+          <div class="actions">
+            <a class="btn btn--primary btn--sm" href="https://wa.me/201107110649?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%B9%D8%A7%D9%8A%D8%B2%20%D8%A7%D8%B4%D8%AA%D8%B1%D9%8A%20%D9%83%D8%AA%D8%A7%D8%A8%20%D8%A8%D8%B1%D9%85%D8%AC%D8%A9%20%D9%85%D9%86%20%D8%BA%D9%8A%D8%B1%20%D9%84%D8%AE%D8%A8%D8%B7%D8%A9" target="_blank" rel="noopener">فتح واتساب</a>
+            <button id="requestBtn" class="btn btn--ghost btn--sm">طلب تفعيل بعد الدفع</button>
+          </div>
+          <p id="reqMsg" class="muted" style="margin:10px 0 0;"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="account.js"></script>
+</body>
+</html>

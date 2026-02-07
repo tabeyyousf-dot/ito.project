@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ito.coding</title>
+  <link rel="stylesheet" href="reader.css" />
+</head>
+
+<body class="reader-page">
+
+  <!-- Top bar -->
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="topbar-btn" href="index.html">الرئيسية</a>
+      <a class="topbar-logo" href="index.html">ito.coding</a>
+    </div>
+  </header>
+
+  <!-- Intro -->
+  <section class="reader-head">
+    <h1 class="reader-title">هل البرمجة طريقك؟</h1>
+    <p class="reader-sub">
+      تقدر تعمل Scroll يدوي عادي، أو استخدم الأسهم الجانبية للتنقّل بسرعة وبسلاسة.
+    </p>
+    <p class="reader-status" id="pdfStatus">جاري تحميل الكتاب…</p>
+  </section>
+
+  <!-- PDF pages -->
+  <main class="reader-main">
+    <div id="pdfPages" class="pdf-pages" data-pdf-src="ito-free-fixed.pdf"></div>
+  </main>
+
+  <!-- Counter (bottom center) -->
+  <div class="reader-counter" aria-live="polite">
+    <span id="curPage">1</span>
+    <span class="sep">/</span>
+    <span id="totalPages">--</span>
+  </div>
+
+  <!-- Arrows (side) -->
+  <div class="reader-arrows" aria-label="Reader arrows">
+    <button class="arrow-btn" id="prevBtn" type="button" aria-label="أعلى">⬆</button>
+    <button class="arrow-btn" id="nextBtn" type="button" aria-label="أسفل">⬇</button>
+  </div>
+
+  <!-- PDF.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+  <script src="reader.js"></script>
+</body>
+</html>

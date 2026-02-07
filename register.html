@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>إنشاء حساب</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="login.css" />
+</head>
+
+<body>
+  <header class="auth-topbar">
+    <a class="btn btn--ghost btn--sm" href="index.html">رجوع للصفحة الرئيسية</a>
+  </header>
+
+  <main class="auth-wrap">
+    <section class="auth-card">
+      <h1 class="auth-title">إنشاء حساب</h1>
+      <p class="auth-sub">اكتب بياناتك عشان تعمل حساب جديد</p>
+
+      <form id="registerForm" class="auth-form">
+        <label class="field">
+          <span>الاسم</span>
+          <input id="name" type="text" placeholder="اسمك" required />
+        </label>
+
+        <label class="field">
+          <span>الإيميل</span>
+          <input id="email" type="email" placeholder="example@email.com" required />
+        </label>
+
+        <label class="field">
+          <span>الباسورد</span>
+          <input id="password" type="password" placeholder="••••••••" required />
+        </label>
+
+        <button type="submit" class="btn primary">إنشاء حساب</button>
+
+        <p id="msg" class="msg"></p>
+
+        <p class="small">
+          عندك حساب؟ <a href="login.html">سجّل دخول</a>
+        </p>
+      </form>
+    </section>
+  </main>
+
+  <script src="register.js"></script>
+</body>
+</html>

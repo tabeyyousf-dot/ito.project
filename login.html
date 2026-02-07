@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>تسجيل الدخول</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="login.css" />
+</head>
+<body>
+  <header class="auth-topbar">
+    <a class="btn btn--ghost btn--sm" href="index.html">رجوع للصفحة الرئيسية</a>
+  </header>
+
+  <main class="auth-wrap">
+    <section class="auth-card">
+      <h1 class="auth-title">تسجيل الدخول</h1>
+      <p class="auth-sub">ادخل بياناتك عشان تكمل</p>
+
+      <form id="loginForm" class="auth-form">
+        <label class="field">
+          <span>الإيميل</span>
+          <input id="email" type="email" placeholder="example@email.com" required />
+        </label>
+
+        <label class="field">
+          <span>الباسورد</span>
+          <input id="password" type="password" placeholder="••••••••" required />
+        </label>
+
+        <button type="submit" class="btn primary">تسجيل الدخول</button>
+
+        <a class="btn google" href="http://localhost:3000/api/auth/google">
+          <span class="g-dot"></span>
+          تسجيل الدخول باستخدام جوجل
+        </a>
+
+        <p id="msg" class="msg"></p>
+
+        <p class="small">معندكش حساب؟ <a href="register.html">اعمل حساب جديد</a></p>
+      </form>
+    </section>
+  </main>
+
+  <script src="login.js"></script>
+</body>
+</html>
